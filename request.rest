@@ -1,0 +1,92 @@
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDBmNWMzZTU0MDU1YTBjNmIyODA0ZTYiLCJ1c2VybmFtZSI6Ik1pY2hhZWwgVCIsImVtYWlsIjoibWljaGFlbC50dUBnbWFpbC5jb20iLCJpYXQiOjE2MTMwODEwMDF9._d08uCJlwmhchXwIWe-9xoT38jM6xv3E1TcjhRmJzbo
+
+GET http://localhost:9090/users
+
+
+###
+POST http://localhost:9090/signup
+Content-Type: application/json
+
+{
+   "username": "",
+   "email": "mikeJohn@yahoo.com",
+   "password": "123456",
+   "confirmPassword": "123456"
+}
+
+###
+POST http://localhost:9090/signin
+Content-Type: application/json
+
+{
+   "email": "michael.tu@gmail.com",
+   "password": "123456"
+}
+
+
+### Get User
+GET http://localhost:9090/user
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+
+#### Update user info
+PUT http://localhost:9090/user
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+   "profilePic": "https://cdn.discordapp.com/avatars/489476450806661157/63497a12a6e92c6d3e52ec8fdbcc6983.png?size=128"
+}
+
+###
+
+POST http://localhost:9090/posts
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+   "body": "Learn React is hard?"
+}
+
+
+### Get posts
+GET http://localhost:9090/posts
+Authorization: Bearer {{token}}
+
+
+
+### Get Single Post
+GET http://localhost:9090/post/kaldjflakjdfklajfd
+Authorization: Bearer {{token}}
+
+
+### Create a reply
+POST http://localhost:9090/reply/5ffcf68dbcf65b7c92d9b64b
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+   "body": "wowo that's awesame right there! good work"
+}
+
+
+
+### Get replies
+GET http://localhost:9090/replies/5ffcf68dbcf65b7c92d9b64b
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+
+### Create channels
+POST http://localhost:9090/channels
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+   "name": "Nodejs"
+}
+
+### Get channels for specific user
+GET http://localhost:9090/channels
+Authorization: Bearer {{token}}
