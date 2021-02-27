@@ -5,9 +5,12 @@ exports.reply = async (req, res) => {
 
   const reply = new db.Reply({
     body: req.body.body,
-    user: req.headers.userId,
-    post: req.params.postId
+    post: req.params.postId,
+    userHandle: req.headers.username,
+    userProfilePic: req.headers.profilePic
   });
+
+  await db.Post.findById({ _id: req.params.postId });
 
   const savedReply = await reply.save();
 

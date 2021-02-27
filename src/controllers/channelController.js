@@ -5,7 +5,9 @@ exports.createChannel = async (req, res) => {
   const channel = await db.Channel.create({
     name: req.body.name,
     members: req.body.members,
-    user: req.headers.userId
+    user: req.headers.userId,
+    visibility: req.body.visibility,
+    description: req.body.description
   });
 
   if (!channel)
@@ -21,10 +23,9 @@ exports.createChannel = async (req, res) => {
 // get all the channels for a specific user
 exports.userChannels = async (req, res) => {
   //check if the userId is equal to the user who created the channel
-  const userId = req.headers.userId;
   const channels = await db.Channel.find({})
     .where("user")
-    .equals(userId)
+    .equals(req.headers.userId)
     .populate("user");
 
   if (!channels)

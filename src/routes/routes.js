@@ -10,10 +10,11 @@ const { auth } = require("../../middlewares/authentication");
 
 //user routes
 router.get("/users", userController.getUsers);
-router.get("/user", auth, userController.getUser);
+router.get("/user", auth, userController.getLoggedInUser);
 router.post("/signup", userController.signup);
 router.post("/signin", userController.signin);
 router.put("/user", auth, userController.updateUser);
+router.get("/user/:_id", auth, userController.getSingleUser);
 
 // post routes
 router.post("/posts", auth, postController.createPost);

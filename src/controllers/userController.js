@@ -118,7 +118,7 @@ exports.signin = async (req, res) => {
     const payload = {
       userId: userFound._id,
       username: userFound.username,
-      email: userFound.email
+      profilePic: userFound.profilePic
     };
 
     // sent the token
@@ -126,12 +126,49 @@ exports.signin = async (req, res) => {
 
     req.headers.authorization = token;
 
+    //change user status
+    await db.User.updateOne({ _id: userFound._id }, { status: "online" });
+
     res.status(200).json({ token });
   } catch (error) {
     console.log(error);
     // return errors;
   }
 };
+
+// exports.login = async (req, res) => {
+//   //validation
+//   const { identifier, password } = req.body;
+
+//   const userdata = await db.User.find({
+//     $or: [{ email: identifier }, { username: identifier }]
+//   });
+
+//   if (!userdata) {
+//     return res.status(404).json({
+//       errors: { userNOtFound: `${identifier} not found` }
+//     });
+//   }
+
+//   const validPass = await bcrypt.compare(password, userdata.password);
+
+//   if (!validPass) {
+//     return res.status(401).json({ errors: { password: "inValid Password" } });
+//   }
+
+//   const payload = {
+//     userId: userFound._id,
+//     username: userFound.username,
+//     email: userFound.email
+//   };
+
+//   // sent the token
+//   const token = await jwt.sign(payload, "THISISAFAKESCRETEKEY");
+
+//   req.headers.authorization = token;
+
+//   res.status(200).json({ token });
+// };
 
 //update user info
 exports.updateUser = async (req, res) => {
@@ -143,7 +180,8 @@ exports.updateUser = async (req, res) => {
       username: req.body.username,
       email: req.body.email,
       bio: req.body.bio,
-      profilePic: req.body.profilePic
+      profilePic: req.body.profilePic,
+      status: req.body.status
     });
 
     const updatedUser = await db.User.findOneAndUpdate(
@@ -170,8 +208,8 @@ exports.updateUser = async (req, res) => {
   }
 };
 
-// Get User
-exports.getUser = async (req, res) => {
+// Get loggedin User info
+exports.getLoggedInUser = async (req, res) => {
   try {
     const user = await db.User.findById({ _id: req.headers.userId });
     if (!user) {
@@ -186,5 +224,23 @@ exports.getUser = async (req, res) => {
       error: error.message
     });
     console.log(error);
+  }
+};
+
+//get single user details
+exports.getSingleUser = async (req, res) => {
+  try {
+    const user = await db.User.findById({ _id: req.params._id });
+    if (!user) {
+      return res.status(400).json({
+        error: "Oops user doesn't exits"
+      });
+    }
+
+    return res.status(200).json(user);
+  } catch (error) {
+    res.status(500).json({
+      error: "something went wrong"
+    });
   }
 };

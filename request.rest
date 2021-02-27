@@ -1,4 +1,4 @@
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDBmNWMzZTU0MDU1YTBjNmIyODA0ZTYiLCJ1c2VybmFtZSI6Ik1pY2hhZWwgVCIsImVtYWlsIjoibWljaGFlbC50dUBnbWFpbC5jb20iLCJpYXQiOjE2MTMwODEwMDF9._d08uCJlwmhchXwIWe-9xoT38jM6xv3E1TcjhRmJzbo
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDBiMTQzNTc3NDE0OTc1NzRkMWVjNzgiLCJ1c2VybmFtZSI6IkNoYXJsZXMiLCJlbWFpbCI6ImNoYXJsZXNAZ21haWwuY29tIiwiaWF0IjoxNjEzNjU0NjcwfQ.KmYW0B7UzCaA4MEM7MlvYiuwQJOyE3DlrREm64NzKrI
 
 GET http://localhost:9090/users
 
@@ -24,6 +24,16 @@ Content-Type: application/json
 }
 
 
+### login
+POST http://localhost:9090/login
+Content-Type: application/json
+
+{
+   "identifier": "michael.tu@gmail.com",
+   "password": "123456"
+}
+
+
 ### Get User
 GET http://localhost:9090/user
 Content-Type: application/json
@@ -36,7 +46,7 @@ Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-   "profilePic": "https://cdn.discordapp.com/avatars/489476450806661157/63497a12a6e92c6d3e52ec8fdbcc6983.png?size=128"
+   "profilePic": "https://image.freepik.com/free-vector/cute-monkey-cartoon_146562-7.jpg"
 }
 
 ###
@@ -57,7 +67,7 @@ Authorization: Bearer {{token}}
 
 
 ### Get Single Post
-GET http://localhost:9090/post/kaldjflakjdfklajfd
+GET http://localhost:9090/post/6026fb5604640d0fcc8c1460
 Authorization: Bearer {{token}}
 
 

@@ -1,11 +1,12 @@
 const express = require("express");
-const app = express();
 const cors = require("cors");
 const helmet = require("helmet");
 const mongoose = require("mongoose");
 require("dotenv").config(".env");
 
 const routes = require("./src/routes/routes");
+
+const app = express();
 
 app.use(cors());
 app.use(helmet());

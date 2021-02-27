@@ -4,13 +4,20 @@ const userSchema = new mongoose.Schema({
   username: {
     type: String,
     trim: true,
-    required: true
+    required: [true, "Username is required"]
   },
   email: {
     type: String,
     trim: true,
     lowercase: true,
-    unique: true
+    unique: true,
+    required: [true, "Email is required"]
+  },
+  status: {
+    type: String,
+    trim: true,
+    required: true,
+    default: "offline"
   },
   bio: {
     type: String,

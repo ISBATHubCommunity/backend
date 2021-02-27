@@ -1,9 +1,12 @@
 ```
 User: {
-   username: String,
+   bio: String,
    email: String,
+   createdAt: Date,
+   status: String,
    password: String,
-   createAt: Date
+   username: String,
+   profilePic: String,
 }
 
 Credentials: {
@@ -13,18 +16,40 @@ Credentials: {
 }
 
 Posts: {
-   userId: objectId,
    body: String,
+   like: Number,
+   unLike: Number,
    createAt: Date,
+   userId: objectId,
+   comments: [{
+
+   }]
+}
+
+channels: {
+   name: String,
+   messages: [
+      {
+         userId: objectId,
+         message: String
+      }
+   ],
+   userId: objectId,
+   visibility: String,
+   description: String,
+   members: [{userId: objectId}]
 }
 
 Reply: {
    postId: objectId,
-   userId: objectId,
+   user: {
+      profilePic: String,
+      userHandle: String
+   },
    body: String,
    createAt: Date,
    like: Number,
-   unLike: Number
+   unLike: Number,
 }
 
 Notifications: {
