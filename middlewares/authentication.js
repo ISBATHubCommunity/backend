@@ -15,7 +15,7 @@ exports.auth = async (req, res, next) => {
   token = req.headers.authorization.split("Bearer ")[1];
 
   //varify the token
-  const verifiedToken = await jwt.verify(token, "THISISAFAKESCRETEKEY");
+  const verifiedToken = await jwt.verify(token, process.env.SECRET_KEY);
   if (!verifiedToken) {
     return res.status(403).json({
       error: "Sorry you are unauthorized to access this resources!"

@@ -43,3 +43,9 @@ exports.loginErrorHandle = async error => {
     }
   }
 };
+
+exports.validateMessage = data => {
+  const error = [];
+  if (data.text === null) {
+  }
+};

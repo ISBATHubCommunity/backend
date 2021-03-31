@@ -1,4 +1,5 @@
 const db = require("../models");
+const { ObjectId } = require("mongodb");
 
 exports.createChannel = async (req, res) => {
   // validate the data
@@ -26,7 +27,7 @@ exports.userChannels = async (req, res) => {
   const channels = await db.Channel.find({})
     .where("user")
     .equals(req.headers.userId)
-    .populate("user");
+    .populate("user", "profilePic username");
 
   if (!channels)
     return res.status(404).json({
@@ -34,4 +35,15 @@ exports.userChannels = async (req, res) => {
     });
 
   return res.status(200).json(channels);
+};
+
+//get single channle
+exports.getChannel = async (req, res) => {
+  const _id = ObjectId(req.params._id);
+  const channelData = await db.Channel.findById({ _id });
+  if (!channelData) {
+    return res.status(500).json({ error: "Channel Data not found" });
+  }
+
+  return res.status(200).json(channelData);
 };

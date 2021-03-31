@@ -1,4 +1,4 @@
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDBiMTQzNTc3NDE0OTc1NzRkMWVjNzgiLCJ1c2VybmFtZSI6IkNoYXJsZXMiLCJlbWFpbCI6ImNoYXJsZXNAZ21haWwuY29tIiwiaWF0IjoxNjEzNjU0NjcwfQ.KmYW0B7UzCaA4MEM7MlvYiuwQJOyE3DlrREm64NzKrI
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDM0NGRiM2MwMTgyYTZlODkxOGZlNDgiLCJ1c2VybmFtZSI6IlNhcmFoIG1pa2UiLCJwcm9maWxlUGljIjoiaHR0cHM6Ly9pbWFnZS5zaHV0dGVyc3RvY2suY29tL2ltYWdlLXBob3RvL3BvcnRyYWl0LXBvc2l0aXZlLXNraWxsZWQtYWZyby1hbWVyaWNhbi02MDB3LTE2OTIwNTY3OTEuanBnIiwiaWF0IjoxNjE2OTQ4MDIxfQ.rBn2TQzY3KQQ_Q38Ym2fyhprFwzTSOhhfBHqCVoaJyw
 
 GET http://localhost:9090/users
 
@@ -19,7 +19,7 @@ POST http://localhost:9090/signin
 Content-Type: application/json
 
 {
-   "email": "michael.tu@gmail.com",
+   "email": "danabramov@gmail.com",
    "password": "123456"
 }
 
@@ -65,7 +65,6 @@ GET http://localhost:9090/posts
 Authorization: Bearer {{token}}
 
 
-
 ### Get Single Post
 GET http://localhost:9090/post/6026fb5604640d0fcc8c1460
 Authorization: Bearer {{token}}
@@ -99,4 +98,28 @@ Authorization: Bearer {{token}}
 
 ### Get channels for specific user
 GET http://localhost:9090/channels
+Authorization: Bearer {{token}}
+
+
+### Get single Channel info
+GET http://localhost:9090/channels/60344f15c0182a6e8918fe4a
+Authorization: Bearer {{token}}
+
+
+### create message
+post http://localhost:9090/messages/60344f15c0182a6e8918fe4a
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+   "body": "first message test for this channel"
+}
+
+### get all messages for a specific channel
+GET http://localhost:9090/messages/60344f15c0182a6e8918fe4a
+Authorization: Bearer {{token}}
+
+
+### delete specific message
+DELETE http://localhost:9090/messages/60460bd937b15579a452b32b
 Authorization: Bearer {{token}}

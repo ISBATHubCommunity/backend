@@ -37,7 +37,9 @@ const userSchema = new mongoose.Schema({
     trim: true,
     default:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgUNaoFwOOa3sOnMoc8CVUJ65bhS822etxVQ&usqp=CAU"
-  }
+  },
+  resetPasswordToken: { type: String },
+  resetPasswordTokenExpire: { type: Date }
 });
 
 module.exports = mongoose.model("User", userSchema);
