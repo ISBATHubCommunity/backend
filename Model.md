@@ -1,21 +1,31 @@
+### User Model
+
 ```
 User: {
-   bio: String,
+   id: string
+   handle: String,
    email: String,
+   bio: String,
    createdAt: Date,
+   updatedAt: Date,
    status: String,
    password: String,
-   username: String,
    profilePic: String,
+   resetPasswordToken: string,
+   resetPasswordTokenExpire Date,
 }
 
-Credentials: {
-   fname: String,
-   lname: String,
-   profilePic: String,
+```
+
+```
+
+credentials: {
+   id: String,
+   bio: String,
+   profilePic: String
 }
 
-Posts: {
+Post: {
    body: String,
    like: Number,
    unLike: Number,
@@ -25,38 +35,57 @@ Posts: {
 
    }]
 }
+```
 
-channels: {
+#### Channel Model
+
+```
+channel: {
+   id: String,
    name: String,
-   messages: [
-      {
-         userId: objectId,
-         message: String
-      }
-   ],
    userId: objectId,
+   identifier: number,
    visibility: String,
    description: String,
    members: [{userId: objectId}]
 }
 
-Reply: {
-   postId: objectId,
-   user: {
-      profilePic: String,
-      userHandle: String
-   },
-   body: String,
-   createAt: Date,
-   like: Number,
-   unLike: Number,
+```
+
+#### Message model
+
+```
+message: {
+   id: ObjectId, - id for each individual message.
+   userId: ObjectId, - id for the user who send the message.
+   text: String, - the message it self.
+   createdAt: Date, - the time the message is sent.
+   updateAt: Date, - the time the message is updated.
 }
 
-Notifications: {
+```
 
+member: {
+userId: ObjectId,
+ChannelId: ObjectId,
+}
+
+Reply: {
+postId: objectId,
+user: {
+profilePic: String,
+userHandle: String
+},
+body: String,
+createAt: Date,
+like: Number,
+unLike: Number,
 }
 
 Open-source-Project: {
-   userId: objectId,
+userId: objectId,
 }
+
+```
+
 ```
