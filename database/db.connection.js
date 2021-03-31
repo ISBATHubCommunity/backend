@@ -1,11 +1,17 @@
 const mongoose = require("mongoose");
 
+/**
+ @param {String} url -  This is the connection url
+ */
+
 function dataBaseConnection(url) {
   mongoose.connect(
     url,
     {
       useNewUrlParser: true,
-      useUnifiedTopology: true
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false
     },
     () => {
       console.log("Connected Successfully!");
