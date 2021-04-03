@@ -15,7 +15,19 @@ exports.getUsers = async (req, res) => {
 
 exports.signup = async (req, res) => {
   //validation
-  //check if the user already exist
+
+  //checking if username already exist.
+  const isUsernameExist = await db.User.findOne({
+    username: req.body.username
+  });
+
+  if (isUsernameExist) {
+    return res.status(400).json({
+      username: "Handle already taken Please use another Handle."
+    });
+  }
+
+  //check if the user email already exist
   const isUserExist = await db.User.findOne({ email: req.body.email });
   if (isUserExist) {
     return res.status(401).json({

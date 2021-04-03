@@ -7,7 +7,7 @@ const routes = require("./src/routes/routes");
 const errorHandlers = require("./handlers/errorHandling");
 const app = express();
 const http = require("http").Server(app);
-//eslint-disable-next-line
+
 const io = require("socket.io")(http);
 
 //application middlewares
@@ -16,16 +16,12 @@ app.use(helmet());
 app.use(express.json());
 
 //Connection to the database.
-//eslint-disable-next-line
 dataBaseConnection(process.env.DB_CONNECTION);
 
 //application main route
 app.use("/", routes);
 
-// eslint-disable-next-line
 const PORT = process.env.PORT || 3300;
-
-//eslint-disable-next-line
 const host = process.env.HOST || "localhost:";
 
 // If any of our routes didn't work, then we ganna 404 them and

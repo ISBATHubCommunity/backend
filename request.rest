@@ -1,14 +1,13 @@
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDM0NGRiM2MwMTgyYTZlODkxOGZlNDgiLCJ1c2VybmFtZSI6IlNhcmFoIG1pa2UiLCJwcm9maWxlUGljIjoiaHR0cHM6Ly9pbWFnZS5zaHV0dGVyc3RvY2suY29tL2ltYWdlLXBob3RvL3BvcnRyYWl0LXBvc2l0aXZlLXNraWxsZWQtYWZyby1hbWVyaWNhbi02MDB3LTE2OTIwNTY3OTEuanBnIiwiaWF0IjoxNjE2OTQ4MDIxfQ.rBn2TQzY3KQQ_Q38Ym2fyhprFwzTSOhhfBHqCVoaJyw
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDM0MGRkMzcyNjE3OTBhZTMyMGQ2NjkiLCJ1c2VybmFtZSI6IkRhbiBBYnJhbW92IiwicHJvZmlsZVBpYyI6Imh0dHBzOi8vZDJlaXA5c2Yzb282YzIuY2xvdWRmcm9udC5uZXQvaW5zdHJ1Y3RvcnMvYXZhdGFycy8wMDAvMDAwLzAzMi9tZWRpdW0vb2FwZ1dfRnBfNDAweDQwMC5qcGciLCJpYXQiOjE2MTc0NTM5MDF9.9iEbm8imxr_mGqmtZPIc1OKsM9OeSMiZ6Y8k84_o0uA
 
 GET http://localhost:9090/users
-
 
 ###
 POST http://localhost:9090/signup
 Content-Type: application/json
 
 {
-   "username": "",
+   "username": "Dan Abramov",
    "email": "mikeJohn@yahoo.com",
    "password": "123456",
    "confirmPassword": "123456"
@@ -23,7 +22,6 @@ Content-Type: application/json
    "password": "123456"
 }
 
-
 ### login
 POST http://localhost:9090/login
 Content-Type: application/json
@@ -33,12 +31,10 @@ Content-Type: application/json
    "password": "123456"
 }
 
-
 ### Get User
 GET http://localhost:9090/user
 Content-Type: application/json
 Authorization: Bearer {{token}}
-
 
 #### Update user info
 PUT http://localhost:9090/user
@@ -50,7 +46,6 @@ Authorization: Bearer {{token}}
 }
 
 ###
-
 POST http://localhost:9090/posts
 Content-Type: application/json
 Authorization: Bearer {{token}}
@@ -59,16 +54,13 @@ Authorization: Bearer {{token}}
    "body": "Learn React is hard?"
 }
 
-
 ### Get posts
 GET http://localhost:9090/posts
 Authorization: Bearer {{token}}
 
-
 ### Get Single Post
 GET http://localhost:9090/post/6026fb5604640d0fcc8c1460
 Authorization: Bearer {{token}}
-
 
 ### Create a reply
 POST http://localhost:9090/reply/5ffcf68dbcf65b7c92d9b64b
@@ -78,8 +70,6 @@ Authorization: Bearer {{token}}
 {
    "body": "wowo that's awesame right there! good work"
 }
-
-
 
 ### Get replies
 GET http://localhost:9090/replies/5ffcf68dbcf65b7c92d9b64b
@@ -100,11 +90,9 @@ Authorization: Bearer {{token}}
 GET http://localhost:9090/channels
 Authorization: Bearer {{token}}
 
-
 ### Get single Channel info
 GET http://localhost:9090/channels/60344f15c0182a6e8918fe4a
 Authorization: Bearer {{token}}
-
 
 ### create message
 post http://localhost:9090/messages/60344f15c0182a6e8918fe4a
@@ -118,7 +106,6 @@ Authorization: Bearer {{token}}
 ### get all messages for a specific channel
 GET http://localhost:9090/messages/60344f15c0182a6e8918fe4a
 Authorization: Bearer {{token}}
-
 
 ### delete specific message
 DELETE http://localhost:9090/messages/60460bd937b15579a452b32b

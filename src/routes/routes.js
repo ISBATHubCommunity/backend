@@ -12,7 +12,7 @@ const { catchErrorsHandler } = require("../../handlers/errorHandling");
 const { auth } = require("../../middlewares/authentication");
 
 //user routes
-router.get("/users", catchErrorsHandler(userController.getUsers));
+router.get("/users", auth, catchErrorsHandler(userController.getUsers));
 router.get("/user", auth, catchErrorsHandler(userController.getLoggedInUser));
 router.post("/signup", catchErrorsHandler(userController.signup));
 router.post("/signin", catchErrorsHandler(userController.signin));

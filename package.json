@@ -1,12 +1,11 @@
 {
   "name": "backend",
-  "version": "0.0.1",
-  "description": "mini-project-backend",
+  "version": "1.0.1",
+  "description": "isbat community backend",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "dev": "npm run watch",
-    "startDev": "nodemon --exec babel-node index.js",
     "watch": "nodemon index.js",
     "test": "jest",
     "lint": "eslint ./src index.js"
@@ -18,9 +17,6 @@
   "author": "Charles Elloit",
   "license": "ISC",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-3": "^6.24.1",
     "eslint": "^7.20.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
