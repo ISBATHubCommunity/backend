@@ -1,5 +1,7 @@
 ### User Model
 
+// contributer name: dev-badace
+
 ```
 User: {
    id: string

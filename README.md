@@ -1,10 +1,10 @@
 # Scripts
 
-`npm start` which will start the server without automatic reload
-`npm run dev` which start the server using nodemon and automatic reload
-`npm run watch` this will also run using nodemon and automatic reload
-`npm run lint` this will run eslint to catch any error and enforce style rules
-`npm run test` this will run jest for testing if our code is doing what is expected to do.
+`npm start` which will start the server without automatic reload<br>
+`npm run dev` which start the server using nodemon and automatic reload<br>
+`npm run watch` this will also run using nodemon and automatic reload<br>
+`npm run lint` this will run eslint to catch any error and enforce <br>style rules
+`npm run test` this will run jest for testing if our code is doing<br> what is expected to do.
 
 # Database Setup
 
