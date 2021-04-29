@@ -14,6 +14,7 @@ const dataBaseConnection = require("./database/db.connection");
 // socket io
 io.use((socket, next) => {
   if (socket.handshake.query && socket.handshake.query.token) {
+    console.log(socket.handshake.query.token);
     // eslint-disable-next-line consistent-return
     jwt.verify(socket.handshake.query.token, process.env.SECRET_KEY, (err, decoded) => {
       if (err) return next(new Error({ AuthenticationError: "Authentication error, invalid Token" }));
